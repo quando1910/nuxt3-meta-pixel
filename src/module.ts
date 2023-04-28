@@ -16,7 +16,7 @@ export interface ModuleOptions {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'meta-pixel',
+    name: 'nuxt3-meta-pixel',
     configKey: 'facebook'
   },
   // Default configuration options of the Nuxt module

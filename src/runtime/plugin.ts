@@ -1,5 +1,5 @@
-import { defineNuxtPlugin, useRoute, useRouter, useRuntimeConfig } from '#app'
-import { Minimatch } from 'minimatch'
+import { defineNuxtPlugin, useRoute, useRouter, useRuntimeConfig } from '#app';
+import { Minimatch } from 'minimatch';
 
 /**
  * @class Fb
