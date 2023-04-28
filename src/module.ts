@@ -2,14 +2,14 @@ import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {
-  pixelId: string | null;
-  track: string;
-  autoPageView: boolean;
-  version: string;
-  pixels: any[];
-  manualMode: boolean;
-  disabled: boolean;
-  debug: boolean;
+  pixelId?: string | null;
+  track?: string;
+  autoPageView?: boolean;
+  version?: string;
+  pixels?: any[];
+  manualMode?: boolean;
+  disabled?: boolean;
+  debug?: boolean;
   dev?: boolean;
 }
 
@@ -31,8 +31,8 @@ export default defineNuxtModule<ModuleOptions>({
     debug: false,
   },
   setup (options, nuxt) {
-    const resolver = createResolver(import.meta.url)
-    nuxt.options.runtimeConfig.public.facebook = options;
+    const resolver = createResolver(import.meta.url);
+    (nuxt.options.runtimeConfig.public as any).facebook = options;
     options.dev = nuxt.options.dev;
 
     // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
