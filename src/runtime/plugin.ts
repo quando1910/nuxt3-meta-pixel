@@ -1,5 +1,4 @@
 import { defineNuxtPlugin, useRoute, useRouter, useRuntimeConfig } from '#app';
-import { Minimatch } from 'minimatch';
 
 /**
  * @class Fb
@@ -124,17 +123,6 @@ class Fb {
   }
 }
 
-function getMatchingPixel (options: any, path: any) {
-  return options.pixels.find(pixel => {
-    const routeIndex = pixel.routes.findIndex(route => {
-      const minimatch = new Minimatch(route)
-      return minimatch.match(path)
-    })
-
-    return routeIndex !== -1
-  })
-}
-
 function log (...messages: any) {
   // @ts-ignore
   console.info.apply(this as any, ['[@nuxtjs/meta-pixel]', ...messages])
@@ -144,14 +132,11 @@ export default defineNuxtPlugin((nuxtApp) => {
   const runtimeConfig = useRuntimeConfig();
   const parsedOptions = runtimeConfig.public.facebook;
   const router = useRouter();
-  const { path } = useRoute();
 
   const isDev = parsedOptions.dev && !parsedOptions.debug;
   if (isDev) log('You are running in development mode. Set "debug: true" in your nuxt.config.js if you would like to trigger tracking events in local.')
 
-  const matchingPixel = getMatchingPixel(parsedOptions, path)
-
-  const pixelOptions = Object.assign({}, matchingPixel || parsedOptions)
+  const pixelOptions = parsedOptions;
 
   const instance = new Fb(pixelOptions)
 
@@ -202,9 +187,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       /**
        * Change the current pixelId according to the route.
        */
-      const matchingPixel = getMatchingPixel(parsedOptions, path)
-
-      const pixelOptions = Object.assign({}, matchingPixel || parsedOptions)
+      const pixelOptions = parsedOptions;
       if (pixelOptions.pixelId !== instance.options.pixelId) {
         instance.setPixelId(pixelOptions.pixelId)
       }
