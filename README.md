@@ -1,6 +1,6 @@
 # nuxt 3 meta pixel
 
-> A NuxtJS 3 module thats injects Meta (Facebook) Pixel code
+> A Nuxt 3 module thats injects Meta Pixel (Facebook Pixel) 
 
 ## Table of Contents
 
