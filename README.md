@@ -1,4 +1,4 @@
-# Nuxt plugin for Facebook pixel for Nuxt 3
+# Nuxt plugin for Facebook pixel (Nuxt 3)
 
 > A Nuxt 3 module thats injects Meta Pixel (Facebook Pixel) 
 
