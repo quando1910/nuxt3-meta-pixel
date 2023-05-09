@@ -1,6 +1,6 @@
 {
   "name": "nuxt3-meta-pixel",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "meta (facebook) pixel plugin for nuxt 3",
   "repository": "https://github.com/quando1910/nuxt3-meta-pixel",
   "license": "MIT",

@@ -95,15 +95,6 @@ The `pixels` property expects an array of options.
   ],
   facebook: {
     pixelId: 'DEFAULT_PIXEL_ID',
-    pixels: [
-      {
-        pixelId: 'FACEBOOK_PIXEL_ID',
-        routes: [
-          '/my-custom-route',
-          '/hello/*'
-        ]
-      }
-    ]
   },
 }
 ```
@@ -136,7 +127,6 @@ List of possible options in the module:
 | debug | false    | false    | By default, tracking in development mode is disabled. By specifying `true`, you manually allow tracking in development mode.
 | manualMode | false    | false    | By default, Facebook will trigger button click and page metadata. Set to `true` to disable this behaviour. [See more informations](https://developers.facebook.com/docs/facebook-pixel/advanced/#automatic-configuration)
 | autoPageView | false    | false    | If set to `true`, automatically triggers a `PageView` track event on every page change.
-| pixels | []    | false    | An array of pixels be used according to a specific set of routes. See [Multiple pixel codes according to route](#multiple-pixel-codes-according-to-route)
 
 ## Facebook pixel instance
 
