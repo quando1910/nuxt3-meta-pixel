@@ -74,11 +74,17 @@ If you'd like to install the pixel disabled, and enable it later after the user 
   },
 }
 ```
+How to access $fb ?
+```
+import { useNuxtApp } from '#app';
+const nuxtApp = useNuxtApp()
+console.log(nuxtApp.$fb)
+```
 
 Now, in your component, you can call the following in order to start the pixel and track the current page.
 
 ```js
-this.$fb.enable()
+nuxtApp.$fb.enable()
 ```
 
 The pixel can be disabled again later on by using the `.disable()` method.
@@ -108,8 +114,8 @@ To send custom user data when initializing the FB Pixel you'll have to disable t
 
 Run the following from your Vue component once you've access to the user data:
 ```javascript
-this.$fb.setUserData({ external_id: 32323, fn: 'John' })
-this.$fb.enable()
+nuxtApp.$fb.setUserData({ external_id: 32323, fn: 'John' })
+nuxtApp.$fb.enable()
 ```
 
 Read more about [Advanced Matching](https://developers.facebook.com/docs/facebook-pixel/advanced/advanced-matching).
